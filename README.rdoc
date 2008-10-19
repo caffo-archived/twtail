@@ -8,10 +8,10 @@ twitter tail based on search.twitter.com
 
 == SYNOPSIS:
 
-#
-# $ bin/twtail 
-# Usage: twtail [xbox+live | from:caffo | '#barcamp']
-#
+
+$ bin/twtail 
+
+Usage: twtail [xbox+live | from:caffo | '#barcamp']
 
 == REQUIREMENTS:
 
