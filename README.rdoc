@@ -4,12 +4,12 @@
 
 == DESCRIPTION:
 
-twitter tail based on search.twitter.com
+twitter tail based on search.twitter.com works perfectly with crappy 
+internet connections usually available at tech conferences.
 
 == SYNOPSIS:
 
-
-$ bin/twtail 
+$ twtail 
 
 Usage: twtail [xbox+live | from:caffo | '#barcamp']
 
@@ -20,7 +20,7 @@ Usage: twtail [xbox+live | from:caffo | '#barcamp']
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install twtail
 
 == LICENSE:
 
