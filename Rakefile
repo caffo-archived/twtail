@@ -23,8 +23,8 @@ begin
     gem.email = "caffeine@gmail.com"
     gem.homepage = "http://github.com/caffo/twtail"
     gem.authors = ["rodrigo franco (caffo)"]
-    gem.add_development_dependency "htmlentities", ">= 4.2.1"
-    gem.add_development_dependency "simple-rss", ">= 1.2.2"
+    gem.add_dependency "htmlentities", ">= 4.2.1"
+    gem.add_dependency "simple-rss", ">= 1.2.2"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
