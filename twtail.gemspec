@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
      "lib/twtail.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
-     "spec/twtail_spec.rb"
+     "spec/twtail_spec.rb",
+     "twtail.gemspec"
   ]
   s.homepage = %q{http://github.com/caffo/twtail}
   s.rdoc_options = ["--charset=UTF-8"]
