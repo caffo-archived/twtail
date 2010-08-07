@@ -50,7 +50,7 @@ module Twtail
          puts "\n\n" if new_items == true
          pointer = feed.items[0].published + 1
          break if Module.constants.include?("DEBUG")
-         sleep(10)
+         sleep(60)
        end
      rescue
         "No data was found for this criteria. please try with other keywords."
