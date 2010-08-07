@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{twtail}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["rodrigo franco (caffo)"]
-  s.date = %q{2010-08-06}
+  s.date = %q{2010-08-07}
   s.default_executable = %q{twtail}
   s.description = %q{twitter tail based on search.twitter.com - works perfectly with crappy internet connections usually available at tech conferences}
   s.email = %q{caffeine@gmail.com}
