@@ -29,7 +29,6 @@ module Twtail
        coder     = HTMLEntities.new
 
        puts "\033[37m==\033[0m \033[1;32m#{feed.channel.title}\033[0m \033[37m==\033[0m\n\n" unless Module.constants.include?("DEBUG")
-       
        if feed.items[0].published < pointer
          puts "No items found since yesterday"
          exit
@@ -38,23 +37,23 @@ module Twtail
        while 1==1 do
          new_items = false
          begin
-         feed  = SimpleRSS.parse open(url)
-         feed.items.each do |item|
-           next if item.published < pointer
-           unless Module.constants.include?("DEBUG")
-             puts "\033[32m#{item.author.sub(/(\w+).+\n.+/,'\1')}: \033[0m\033[37m#{coder.decode(item.title)}\033[0m"
-             new_items = true
+           feed  = SimpleRSS.parse open(url) rescue nil
+           feed.items.each do |item|
+             next if item.published < pointer
+             unless Module.constants.include?("DEBUG")
+               puts "\033[32m#{item.author.sub(/(\w+).+\n.+/,'\1')}: \033[0m\033[37m#{coder.decode(item.title)}\033[0m"
+               new_items = true
+             end
            end
-         end
          rescue
          end
          puts "\n\n" if new_items == true
          pointer = feed.items[0].published + 1
          break if Module.constants.include?("DEBUG")
-         sleep(60)
+         sleep(10)
        end
      rescue
-       puts "No data was found for this criteria. please try with other keywords."
+        "No data was found for this criteria. please try with other keywords."
      end
    end   
 end
