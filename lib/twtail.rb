@@ -43,7 +43,7 @@ class Twtail
   def run
     begin
       pointer   = Time.now - 86400
-      feed      = SimpleRSS.parse open(@url)
+      feed      = SimpleRSS.parse(read)
       coder     = HTMLEntities.new
 
       channel.puts "\033[37m==\033[0m \033[1;32m#{feed.channel.title}\033[0m \033[37m==\033[0m\n\n"
@@ -56,7 +56,7 @@ class Twtail
       while 1==1 do
         new_items = false
         begin
-          feed  = SimpleRSS.parse open(@url) rescue nil
+          feed  = SimpleRSS.parse(read) rescue nil
           feed.items.each do |item|
             next if item.published < pointer
             msg = colorize(37, coder.decode(item.title))
@@ -76,6 +76,10 @@ class Twtail
     rescue
       "No data was found for this criteria. please try with other keywords."
     end
+  end
+
+  def read
+    open(@url).read
   end
 
   def from_parser(from)
