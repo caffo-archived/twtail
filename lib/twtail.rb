@@ -64,7 +64,10 @@ module Twtail
 
     def from_parser(from)
       from.sub!(/(\w+).+\n.+/,'\1')
-      colorize(32, "#{from}: ")
+      from.gsub!(/.*(\(.*)/, "\\1")
+      from.gsub!(/\)http/, ") - http")
+      from = colorize(32, "#{from}: ")
+      colorize(4, from, /(https?:\/\/[\S]+)/i)
     end
 
     def colorize(color, text, regex = nil)
