@@ -3,4 +3,4 @@
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 require 'twtail'
 
-puts (Twtail.execute(ARGV[0]))
+Twtail.execute(ARGV[0])
