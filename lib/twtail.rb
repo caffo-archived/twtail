@@ -56,7 +56,7 @@ class Twtail
       while 1==1 do
         new_items = false
         begin
-          feed  = SimpleRSS.parse open(url) rescue nil
+          feed  = SimpleRSS.parse open(@url) rescue nil
           feed.items.each do |item|
             next if item.published < pointer
             msg = colorize(37, coder.decode(item.title))
