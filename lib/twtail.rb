@@ -8,11 +8,11 @@ require 'time'
 require 'cgi'
 require 'htmlentities'
 
-module Twtail
+class Twtail
   
   class << self
-    attr_writer :channel
-    attr_writer :error_channel
+    attr_accessor :channel
+    attr_accessor :error_channel
   end
   
   def self.channel
@@ -23,10 +23,10 @@ module Twtail
     @error_channel ||= STDERR
   end
   
-  def self.execute(params=nil)
+  def self.execute(term = nil)
     trap("INT") { exit }
-    if params
-      search(params)
+    if term && !term.empty?
+      new(term).run
     else
       error_channel.puts help
     end
@@ -36,12 +36,14 @@ module Twtail
     "Usage: twtail [xbox+live | from:caffo | '#barcamp']"
   end
 
-  def self.search(params)
+  def initialize(term)
+    @url = "http://search.twitter.com/search.atom?q=#{CGI.escape term}"
+  end
+
+  def run
     begin
-      pointer   = Time.now-86400
-      parameter = CGI::escape(params)
-      url       = "http://search.twitter.com/search.atom?q=#{parameter}"
-      feed      = SimpleRSS.parse open(url)
+      pointer   = Time.now - 86400
+      feed      = SimpleRSS.parse open(@url)
       coder     = HTMLEntities.new
 
       channel.puts "\033[37m==\033[0m \033[1;32m#{feed.channel.title}\033[0m \033[37m==\033[0m\n\n"
@@ -76,7 +78,7 @@ module Twtail
     end
   end
 
-  def self.from_parser(from)
+  def from_parser(from)
     from.sub!(/(\w+).+\n.+/,'\1')
     from.gsub!(/.*(\(.*)/, "\\1")
     from.gsub!(/\)http/, ") - http")
@@ -84,12 +86,20 @@ module Twtail
     colorize(4, from, /(https?:\/\/[\S]+)/i)
   end
 
-  def self.colorize(color, text, regex = nil)
+  def colorize(color, text, regex = nil)
     if regex.nil?
       "\033[#{color}m#{text}\033[0m"
     else
       text.gsub(regex, "\033[#{color}m\\1\033[0m")
     end
+  end
+  
+  def channel
+    self.class.channel
+  end
+
+  def error_channel
+    self.class.error_channel
   end
   
 end
