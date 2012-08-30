@@ -18,7 +18,7 @@ module Twtail
     end
 
     def help
-      return("Usage: twtail [xbox+live | from:caffo | '#barcamp']")
+      return("Usage: twtail [xbox+live | from:caffo | '#barcamp' | '-spammed_keyword']")
     end
 
     def search(params)
