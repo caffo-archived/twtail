@@ -80,7 +80,7 @@ class Twtail
     from.sub!(/(\w+).+\n.+/,'\1')
     from.gsub!(/.*(\(.*)/, "\\1")
     from.gsub!(/\)http/, ") - http")
-    from = colorize(32, "#{from}: ")
+    from = colorize(32, "#{from} ")
     colorize(4, from, /(https?:\/\/[\S]+)/i)
   end
 
