@@ -43,4 +43,5 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency "rake"
   s.add_development_dependency 'rspec', '>= 2.11.0'
+  s.add_development_dependency 'mocha', '~> 0.12.0'
 end

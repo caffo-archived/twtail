@@ -45,13 +45,7 @@ class Twtail
       pointer   = Time.now - 86400
       feed      = SimpleRSS.parse(read)
       coder     = HTMLEntities.new
-
       channel.puts "\033[37m==\033[0m \033[1;32m#{feed.channel.title}\033[0m \033[37m==\033[0m\n\n"
-      
-      if feed.items[0].published < pointer
-        channel.puts "No items found since yesterday"
-        exit
-      end
 
       while 1==1 do
         new_items = false

@@ -18,7 +18,7 @@ describe Twtail, 'execute', :mock_channel => true do
       Twtail.execute("#rubyconfbr")
     end
     it "should display some results" do  
-      output.should =~ /#rubyconfbr/
+      output.should == "\e[37m==\e[0m \e[1;32m#rubyconf - Twitter Search\e[0m \e[37m==\e[0m\n\n"
     end
   end
 
