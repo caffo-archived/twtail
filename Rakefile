@@ -26,6 +26,7 @@ begin
     gem.add_dependency "htmlentities", ">= 4.2.1"
     gem.add_dependency "simple-rss", ">= 1.2.2"
     gem.add_development_dependency 'rspec', '>= 2.11.0'
+    gem.add_development_dependency 'mocha', '~> 0.12.0'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
