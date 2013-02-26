@@ -1,0 +1,30 @@
+PATH
+  remote: .
+  specs:
+    twtail (0.2.0)
+      htmlentities (>= 4.2.1)
+      simple-rss (>= 1.2.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    diff-lcs (1.2.1)
+    htmlentities (4.3.1)
+    rake (10.0.3)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.0)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.0)
+    simple-rss (1.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  rspec (>= 2.11.0)
+  twtail!
