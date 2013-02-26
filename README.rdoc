@@ -1,4 +1,4 @@
-= twtail
+= twtail {<img src="https://travis-ci.org/caffo/twtail.png?branch=master" alt="Build Status" />}[https://travis-ci.org/cafoo/twtail]
 
 * http://github.com/caffo/twtail/tree/master
 
